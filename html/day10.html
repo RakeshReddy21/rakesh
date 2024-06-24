@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      td,
+      th {
+        border: 3px solid;
+        border-collapse: collapse;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Task Based on HTML TAGS:</h1>
+    <table>
+      <tr>
+        <td rowspan="3"><center>Day</center></td>
+        <td colspan="4"><center>Classes</center></td>
+        <!-- <td>class</td> 
+            <td>class</td>
+            <td>class</td>  -->
+      </tr>
+      <tr>
+        <!-- <td>class</td> -->
+        <td colspan="2"><center>schedule</center></td>
+        <!-- <td>class</td>  -->
+        <td colspan="2" rowspan="2">Topic</td>
+        <!-- <td>class</td>  -->
+      </tr>
+      <tr>
+        <!-- <td>class</td> -->
+        <td>Starts on</td>
+        <td>Finishes off</td>
+        <!-- <td>class</td>
+            <td>class</td>  -->
+      </tr>
+      <tr>
+        <td rowspan="2">Monday</td>
+        <td rowspan="2">8:00am</td>
+        <td rowspan="2">12:00pm</td>
+        <td colspan="2"><center>Introduction to HTML</center></td>
+        <!-- <td>class</td>  -->
+      </tr>
+      <tr>
+        <!-- <td>class</td> -->
+        <!-- <td>class</td> -->
+        <!-- <td>class</td>  -->
+        <td colspan="2"><center>Introduction to css</center></td>
+        <!-- <td>class</td>  -->
+      </tr>
+      <tr>
+        <td rowspan="3">Tuesday</td>
+        <td>8:00am</td>
+        <td>10:00am</td>
+        <td colspan="2" rowspan="2">HTML</td>
+        <!-- <td>class</td>  -->
+      </tr>
+      <tr>
+        <!-- <td>class</td> -->
+        <!-- <td>11:00am</td> -->
+        <!-- <td>2:00pm</td> -->
+        <!-- <td>class</td>
+            <td>class</td>  -->
+      </tr>
+      <tr>
+        <!-- <td>class</td> -->
+        <td>2:00pm</td>
+        <td>5:00pm</td>
+        <td colspan="2">Communication Classes</td>
+        <!-- <td>class</td>  -->
+      </tr>
+      <tr>
+        <td>Wednesday</td>
+        <td>8:00am</td>
+        <td>10:00pm</td>
+        <td colspan="2">CSS</td>
+        <!-- <td>class</td>  -->
+      </tr>
+    </table>
+    <br />
+    <br />
+    <br />
+    <form>
+        <label for="username"> User's name:</label>
+        <input type="text" id="username" name="username">
+        <br>
+        <br>
+        <label for="email"> User's email:</label>
+        <input type="email" id="email" name="email">
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password">
+        <br>
+        <br>
+        <label for="lang">user's favorite programming language: </label>
+        <select id="lang" name="language">
+            <option value="C">C</option>
+            <option value="Python">Python</option>
+            <option value="Java">Java</option>
+            <option value="React">React</option>
+        </select>
+        <br>
+        <br>
+        <label for="gender">Gender: </label>
+        <input type="radio" id="name" name="gender" value="male">
+        <label for="male">Male</label>
+        <input type="radio" id="name" name="gender" value="female">
+        <label for="female"> Female</label>
+        <input type="radio" id="name" name="gender" value="others">
+        <label for="others">Others</label>
+        <br>
+        <br>
+        <input type="submit">
+    </form>
+  </body>
+</html>
