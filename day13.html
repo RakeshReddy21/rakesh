@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        /* h1{
+            border-width: 6px;
+            border-color: red;
+            /* border-style: dashed;  */
+            /* border: 3px double red; */
+            /* padding-left: 40px;
+            padding-top: 6px; */
+            /* padding: 20px 70px 36px 34px;
+            width: 70px;
+            margin-top: 40px;
+            margin-left: 50px;  */
+
+        .new{
+            background-color: blue;
+            width: 250px;
+            padding-left: 30px;
+            margin-left: 30px;
+            margin-bottom: 100px;
+        }
+        .day1, .day2, .day3, .day4, .day5, .day6, .day7{
+            background-color: grey;
+            margin-top: 30px;
+            border: solid;
+            border-radius: 700px;
+            width: 300px;
+            height: 300px;
+            margin-left: 40px;
+        }
+        .day3{
+            background-color: orange;
+            border: red solid;
+            border-radius: 300px;
+            width: 100px;
+            margin-left: 0px;
+            height: 30px;
+            margin-bottom: 70px;
+        }
+        .day2{
+            background-color: blue;
+            /* width: 100px; */
+            /* margin-top:  ; */
+            margin-left: -30px ;
+            margin-top: 30px;
+            margin-bottom: 70px;
+            border-radius: 100px;
+            width: 70px;
+            height: 30px;
+        }
+        .day4{
+            background-color: yellow;
+            border-radius: 100px;
+            margin-left: 10px;
+            margin-left: -10px;
+        
+            width: 120px;
+            height: 30px;
+        }
+        .day5{
+            background-color: limegreen;
+            margin-left: 230px;
+            margin-top: -270px;
+            width: 100px;
+            height: 30px;
+            margin-bottom: 70px;
+        }
+        .day6{
+            background-color: wheat;
+            margin-left:250px ;
+            width: 90px;
+            height: 30px;
+            margin-bottom: 70px;
+        }
+        .day7{
+            background-color: purple;
+            margin-left:210px;
+            width: 120px;
+            height: 30px;
+        }
+        .day8{
+            background-color: brown;
+            border: black solid;
+            border-radius: 70px;
+            width: 80px;
+            margin-left: 100px;
+            margin-top: -310px;
+        }
+        .new1, .new2, .new3 , .new4{
+            border: solid 4px;
+            background-color: black;
+            height: 250px;
+            width: 100px;
+            border-radius: 70px;
+        }
+        .new2{
+            color: green;
+            background-color: green;
+            width: 40px;
+            margin-top: -250px;
+            margin-left: 30px;
+            height: 40px;
+            border-radius: 300px;
+        }
+        .new3{
+            background-color: orange;
+            height: 50px;
+            width: 50px;
+            margin-left: 25px;
+        }
+        .new4{
+            color: red;
+            background-color: red;
+            height: 40px;
+            width: 40px;
+            margin-left: 30px;
+        }
+        .new5{
+            color: black;
+            background-color: black;
+            width: 30px;
+            height: 100px;
+            margin-left: 39px;
+        }
+        .step1{
+            color: blue;
+            border: 3px solid blue;
+            background-color: blue;
+            width: 130px;
+            height: 70px;
+            margin-top: -10px;
+        }
+        .step2{
+            border: 3px solid red;
+            background-color: red;
+            width: 130px;
+            height: 70px;
+            margin-left: 100px;
+            margin-top: -50px;
+
+        }
+        .step3{
+            border: 2px solid yellow;
+            background-color: yellow;
+            width: 130px;
+            height: 70px;
+            margin-left: 200px;
+            margin-top: -50px;
+
+        }
+        .step4{
+            border: 2px solid green;
+            background-color: green;
+            width: 130px;
+            height: 70px;
+            margin-left: 300px;
+            margin-top: -50px;
+        }
+        .solar, .planet1, .planet2, .planet3, .planet4, .planet5, .planet6, .planet7, .planet8, .planet9{
+            border: 2px solid black;
+            border-radius: 300px;
+            height: 300px;
+            width: 700px;
+        }
+        .planet1{
+            height: 250px;
+            width: 550px ;
+            margin-left: 10px;
+            margin-top: -310px;
+        }
+        .planet2{
+            height: 220px;
+            width: 500px ;
+            margin-left: 20px;
+            margin-top: -300px;
+        }
+        .planet3{
+            height: 200px;
+            width: 455px;
+            margin-left: 30px;
+            margin-top: -230px;
+        }
+        .planet4{
+            height: 180px;
+            width: 430px;
+            margin-left: 40px;
+            margin-top: -215px;
+        }
+        .planet5{
+            height: 160px;
+            width: 405px;
+            margin-left: 50px;
+            margin-top: -200px;
+        }
+        .planet6{
+            height: 140px;
+            width: 390px;
+            margin-left: 60px;
+            margin-top: -170px;
+        }
+        .planet7{
+            height: 120px;
+            width: 370px;
+            margin-left: 70px;
+            margin-top: -150px;
+        }
+        .planet8{
+            height: 100px;
+            width: 350px;
+            margin-left: 80px;
+            margin-top: -130px;
+        }
+        .planet1_1{
+            border: 3px solid white;
+            border-radius: 30px;
+            width: 70px;
+            margin-left: 650px; 
+        }
+        .orbit{
+            border: 3px solid orange;
+            background-color: orange;
+            border-radius: 70px;
+            width: 130px;
+            margin-left: 570px;
+            height: 130px;
+            margin-top: -150px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Week Chart</h1>
+    <!-- <div class="new">
+        <h1>html</h1>
+    </div> -->
+    <div class="day1">
+        <h2 class="day3">Saturday</h2>
+        <h2 class="day2">Friday</h2>
+        <h2 class="day4">Thursday</h2>
+        <h2 class="day5">Monday</h2>
+        <h2 class="day6">Tuesday</h2>
+        <h2 class="day7">Wednesday</h2>
+        <h2 class="day8">Sunday</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <h1>Traffic signal</h1>
+    <h3 class="new1"> </h3>
+    <h3 class="new2">.</h3>
+    <h3 class="new3"></h3>
+    <h3 class="new4"></h3>
+    <h2 class="new5"></h2>
+    <br>
+    <br>
+    <h1>Emojis with steps</h1>
+    <br>
+    <h1 class="step1" style='font-size: 50px;'>&#128514;</h1>
+    <h1 class="step2" style='font-size: 50px;'>&#128526;</h1>
+    <h1 class="step3" style='font-size: 50px;'>&#128548;</h1>
+    <h1 class="step4" style='font-size: 50px;'>&#128557;</h1>
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 class="solar"></h1>
+    <h3 class="planet1"></h3>
+    <h3 class="planet1_1"></h3>
+    <h2 class="planet2"></h2>
+    <h2 class="planet3"></h2>
+    <h2 class="planet4"></h2>
+    <h2 class="planet5"></h2>
+    <h2 class="planet6"></h2>
+    <h2 class="planet7"></h2>
+    <h2 class="planet8"></h2>
+    <h1 class="orbit">Sun</h1>
+</body>
+</html>
