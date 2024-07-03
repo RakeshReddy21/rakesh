@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        label[class]{
+            display: inline-block;
+            color: green;
+        }
+        /* .name{
+            color: red;
+        } */
+        input[class]{
+            border: 3px solid black;
+            color: darkcyan;
+            background-color: lightblue;
+        }
+        [for="email"]{
+            color: red;
+        }
+        [name="email"]{
+            border: 3px solid blue; 
+            background-color: orangered;
+        }
+        [for~="password"]{
+            color: blue;
+        }
+        [name~="password"]{
+            border: 3px solid red;
+            background-color: yellowgreen;
+        }
+        [for|="pass"]{
+            color: darkgreen;
+        }
+        [name|="pass"]{
+            border: 3px solid purple;
+            background-color: aquamarine;
+        } 
+        [for^="phone"]{
+            color: darkred;
+        }   
+        [name^="phone"]{
+            border: 3px solid orange;
+            color: lightblue;
+            background-color: blueviolet;
+        }
+        [for$="Address"]{
+            color: darkblue;
+        }
+        [name$="Address"]{
+            border: 3px solid pink;
+            color: lightgreen;
+            background-color: yellow;
+        }
+        [for*="alternate"]{
+            color: darkmagenta;
+        }
+        [name*="alternate"]{
+            border: 3px solid brown;
+            color: lightcoral;
+            background-color: azure;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <fieldset>
+            <legend><B>Personal Information</B></legend>
+        <label class="name" for="name">Name:</label>
+        <input  class="name1" type="text" name="name" id="name" placeholder="name" required>
+        <br>
+        <br>
+        <a><label for="email">Email:</label></a>
+        <input type="email" name="email" id="email" placeholder="abc@gmail.com">
+        <br>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password" placeholder="password" required>
+        <br>
+        <br>
+        <label for="pass">Confirm Password:</label>
+        <input type="pass" name="pass" id="pass" placeholder="password" required>
+        <br>
+        <br>
+        <label for="phone-red">Mobile Number:</label>
+        <input type="tel" name="phone-new" id="phone" placeholder="phone number">
+        <br>
+        <br>
+        <label for="Address">Present Address</label>
+        <textarea id="Address" name="Address" rows="2"></textarea>
+        <br>
+        <br>
+        <label for="alternate">Alternate Mobile Number:</label>
+        <input type="tel" name="alternate" id="alternate" placeholder="phone number">
+        <br>
+        <br>
+        <input type="submit">
+    </fieldset>
+    </form>
+
+</body>
+</html>
