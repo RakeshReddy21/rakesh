@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Whatsapp ChatBox</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(lightgreen 0%, lightgreen 130px, white 130px, white 100%);
+        }
+        .container{
+            position: relative;
+            width: 90vw;
+            max-width: 100%;
+            height: calc(100vh - 50px);
+            background: rgba(255, 255, 255, 0.836);
+            box-shadow: 0 1px 1px 0 black, 0 2px 5px 0 black;
+            display: flex;
+        }
+        .container .leftside{
+            position: relative;
+            flex: 30%;
+            background: rgba(255, 255, 255, 0.336);
+            border-right: 1px solid rgba(0, 0, 0, 0.062);
+        }
+        .container .rightside{
+            position: relative;
+            flex: 70%;
+            background: rgba(255, 255, 255, 0.555);
+        }
+        .container .rightside::before{
+            content: ' ';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url(./chatbox/paa.jpg);
+            opacity: 0.09;
+        }
+        .header{
+            position: relative;
+            width: 100%;
+            height: 60px;
+            background: #ededed;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 15px;
+        }
+        .reader{
+            position: relative;
+
+        }
+        .logo{
+            position: relative;
+            width: 40px;
+            height: 40px;
+            overflow: hidden;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        .cover{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .icons{
+            display: flex;            
+        }
+        .icons li{
+            display: flex;
+            list-style: none;
+            cursor: pointer;
+            color: #51585c;
+            font-size: 1.5em;
+            margin-left: 22px;
+        }
+        .search{
+            position: absolute;
+            width: 100%;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.479);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 15px;
+        }
+        .search div{
+            width: 100%;
+        }
+        .search div input{
+            width: 90%;
+            outline: none;
+            border: none;
+            background: rgba(255, 255, 255, 0.685);;
+            padding: 6px ;
+            height: 38px;
+            border-radius: 30px;
+            font-size: 14px;
+            margin-left:25px;
+            padding-left: 15px;
+        }
+        .search div input ::placeholder{
+            color: rgba(255, 255, 255, 0.034);
+        }
+        .engine{
+            position: absolute;
+            left: 30px;
+            top: 17px; 
+        }
+        .chatlist{
+            position: relative;
+            top: 45px;
+            height: calc(110% - 176px);
+            overflow: auto;
+        }
+        .chatlist .side{
+            position: relative;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.068);
+            cursor: pointer;
+        }
+        .chatlist .side.activate{
+            background: #ebebeb;
+        }
+        .chatlist .side:hover{
+            background: #f5f5f5;
+        }
+        .chatlist .side .box{
+            position: relative;
+            min-width: 45px;
+            height: 45px;
+            overflow: hidden;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .chatlist .side .details{
+            position: relative;
+            width: 100%;
+        }
+        .chatlist .side .details .listfirst{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .chatlist .side .details .listfirst h4{
+            font-size: 1.1em;
+            font-weight: 600;
+            color: black;
+        }
+        .chatlist .side .details .listfirst .time{
+            font-size: 0.75em;
+            color: #aaa;
+        }
+        .chatlist .side .details .listfirst .time {
+            color: #111;
+        }
+        .chatlist .side.unread .details .listfirst .time {
+            color: #06d755;
+        }
+        .message_k{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .message_k p{
+            color: rgba(128, 128, 128, 0.575);
+            overflow: hidden;
+            font-size: 1em;
+            text-overflow: ellipsis;
+        }
+        .message_k b{
+            background:#06d755 ;
+            color: #fff;
+            min-width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 0.75em;
+        }
+        .imgtext{
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .imgtext h4{
+            font-weight: 400;
+            line-height: 1.2em;
+            margin-left: 15px;
+        }
+        .chatbox{
+            position: relative;
+            width: 100%;
+            height: calc(100% - 120px);
+            padding: 50px;
+            overflow-y: auto;
+        }
+        .message{
+            position: relative;
+            display: flex;
+            width: 100%;
+            margin: 5px 0; 
+        }
+        .message p{
+            position: relative;
+            right: 0;
+            text-align: right;
+            max-width: 65%;
+            padding: 12px;
+            background: #dcf8c6;
+            border-radius: 10px;
+            font-size: 1em;
+        }
+        .message p::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -12px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #dcf8c6 0%, #dcf8c6 50%,transparent 50%,transparent);
+        }
+        .message p span{
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85em;
+            opacity: 0.5;
+        }
+        .my_meassage{
+            justify-content: flex-end;
+        }
+        .friend_meassage{
+            justify-content: flex-start;
+        }
+        .friend_meassage p{
+            background: #fff;
+            text-align: left;
+        }
+        .message.friend_meassage p::before{
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -12px;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(225deg, #fff 0%, #fff 50%,transparent 50%,transparent);
+        }
+        .chatbox_input{
+            position: relative;
+            width: 100%;
+            height: 60px;
+            background: #f0f0f0;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .chatbox_input ion-icon{
+            cursor: pointer;
+            font-size: 1.8em;
+            color: #51585c;
+        }
+        .chatbox_input ion-icon:nth-child(1){
+            margin-right: 15px;
+        }
+        .chatbox_input input{
+            position: relative;
+            width: 90%;
+            margin: 0 20px;
+            padding: 10px 20px;
+            outline: none;
+            border-radius: 30px;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="leftside">
+            <div class="header">
+                <div class="logo">
+                    <img src="./chatbox/viswaksen.jpg" class="cover">
+                </div>
+                <ul class="icons">
+                    <li class="icon1"><ion-icon name="scan-circle-outline"></ion-icon></li>
+                    <li class="icon2"><ion-icon name="chatbox"></ion-icon></li>
+                    <li class="icon3"><ion-icon name="ellipsis-vertical"></ion-icon></li>
+                </ul>
+            </div>
+            <div class="search">
+                <div>
+                    <input type="text" placeholder="Search or search for chat">
+                    <ion-icon name="search-outline" class="engine"></ion-icon>
+                </div>
+            </div>
+            <div class="chatlist">
+                <div class="side activate">
+                    <div class="box">
+                        <img src="./chatbox/pandya.jpg" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Kathik Varma</h4>
+                            <p class="time">11:30</p>
+                        </div>
+                        <div class="message_k">
+                            <p>Good morning karthik</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="side unread">
+                    <div class="box">
+                        <img src="./chatbox/MLK_0247.JPG" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Surya</h4>
+                            <p class="time">11:10</p>
+                        </div>
+                        <div class="message_k">
+                            <p>I will call u later</p>
+                            <b>1</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="side unread">
+                    <div class="box">
+                        <img src="./chatbox/download.jpeg" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Charan </h4>
+                            <p class="time">11:00</p>
+                        </div>
+                        <div class="message_k">
+                            <p>Hii</p>
+                            <b>1</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="side">
+                    <div class="box">
+                        <img src="./chatbox/Jkramerheadshot-scaled-e1645036825432-1050x1050-c-default.webp" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Ramya</h4>
+                            <p class="time">10:40</p>
+                        </div>
+                        <div class="message_k">
+                            <p>How are you..?</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="side unread">
+                    <div class="box">
+                        <img src="./chatbox/james-person-1.jpg" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Professor</h4>
+                            <p class="time">10:10</p>
+                        </div>
+                        <div class="message_k">
+                            <p>What about the assignment...?</p>
+                            <b>10</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="side unread">
+                    <div class="box">
+                        <img src="./chatbox/Kayla-Person.jpg" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Kajal</h4>
+                            <p class="time">9:10</p>
+                        </div>
+                        <div class="message_k">
+                            <p>How are you..?</p>
+                            <b>5</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="side">
+                    <div class="box">
+                        <img src="./chatbox/download.webp" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Mahesh</h4>
+                            <p class="time">8:10</p>
+                        </div>
+                        <div class="message_k">
+                            <p>Code Pampi..</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="side unread">
+                    <div class="box">
+                        <img src="./chatbox/download (1).webp" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Mayaa</h4>
+                            <p class="time">Yesterday</p>
+                        </div>
+                        <div class="message_k">
+                            <p>Photos Pampi raa</p>
+                            <b>5</b>
+                        </div>
+                    </div>
+                </div>
+                <div class="side">
+                    <div class="box">
+                        <img src="./chatbox/download (2).webp" class="cover">
+                    </div>
+                    <div class="details">
+                        <div class="listfirst">
+                            <h4>Mrunal</h4>
+                            <p class="time">Yesterday</p>
+                        </div>
+                        <div class="message_k">
+                            <p>Cool....</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="rightside">
+            <div class="header">
+                <div class="imgtext">
+                    <div class="logo">
+                        <img src="./chatbox/pandya.jpg" class="cover">
+                    </div>
+                    <h4>karthik Varma<br></h4>
+                </div>
+                <ul class="icons">
+                    <li><ion-icon name="videocam-outline"></ion-icon></li>
+                    <li class="icon1"><ion-icon name="search-outline"></ion-icon></li>
+                    <li class="icon3"><ion-icon name="ellipsis-vertical"></ion-icon></li>
+                </ul>
+            </div>
+            <div class="chatbox">
+                <div class="message my_meassage">
+                    <p>Hi<br><span>11:30</span></p>
+                </div>
+                <div class="message friend_meassage">
+                    <p>Hello<br><span>11:30</span></p>
+                </div>
+                <div class="message my_meassage">
+                    <p>How are you..?<br><span>11:30</span></p>
+                </div>
+                <div class="message friend_meassage">
+                    <p>Fine. What about u..?<br><span>11:30</span></p>
+                </div>
+                <div class="message my_meassage">
+                    <p>Have u met any of our friends recently<br><span>11:30</span></p>
+                </div>
+                <div class="message friend_meassage">
+                    <p>Yeah.. i met only mahesh and mayaa<br><span>11:30</span></p>
+                </div>
+                <div class="message my_meassage">
+                    <p>Is all fine and are they doing there jobs?<br><span>11:30</span></p>
+                </div>
+                <div class="message friend_meassage">
+                    <p>Yeah.. man they about u also<br><span>11:30</span></p>
+                </div>
+                <div class="message my_meassage">
+                    <p>ohh..!! they still remeber me <br><span>11:30</span></p>
+                </div>
+                <div class="message friend_meassage">
+                    <p>Yeah of course. How will they forget u..? <br><span>11:30</span></p>
+                </div>
+                <div class="message my_meassage">
+                    <p>Just kidding man.. Chill<br><span>11:30</span></p>
+                </div>
+            </div>
+            <div class="chatbox_input">
+                <ion-icon name="happy-outline"></ion-icon>
+                <ion-icon name="attach-outline"></ion-icon>
+                <input type="text" placeholder="Type a message">
+                <ion-icon name="mic-outline"></ion-icon>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
