@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keyboard</title>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .container {
+            width: 680px;
+            height: 500px;
+            border: 2px solid rgb(0, 0, 0);
+            
+            
+        }
+        .keys{ 
+            display: flex;
+            column-gap: 5px;
+            padding-top: 10px;
+            margin-left: 5px;
+        } 
+        .key1{
+            height: 54px;
+            width: 40px;
+        }
+        .num, .all, .caps, .shif, .con{
+            display: flex;
+            column-gap: 5px;
+            padding-top: 15px;
+            margin-left: 7px;
+
+        }
+        .num1, .all1, .caps1, .shift1, .con1{
+            height: 40px;
+            width: 42px;
+            overflow: hidden;
+            flex-wrap: wrap;
+        }
+        .all1{
+            width: 43px;
+        }
+        .caps1{
+            width: 44px;
+        }
+        .caps1{
+            margin-top: -60px;
+        }
+        .shift1{
+            width: 46px;
+            margin-top: -20px;
+        }
+        .con1{
+            width: 40px;
+            margin-top: -55px;
+        }
+        .con2{
+            margin-top: -30px;
+            margin-left: -55px;
+        }
+        button{
+            background-color: orange;
+            box-shadow: 5px 5px rgb(182, 167, 159);
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div class="keyboard">
+        <div class="keys">
+            <button class="key1" style="width: 50px;">ese</button>
+            <button class="key1">f1</button>
+            <button class="key1">f2</button>
+            <button class="key1">f3</button>
+            <button class="key1">f4</button>
+            <button class="key1">f5</button>
+            <button class="key1">f6</button>
+            <button class="key1">f7</button>
+            <button class="key1">f8</button>
+            <button class="key1">f9</button>
+            <button class="key1">f10</button>
+            <button class="key1">f11</button>
+            <button class="key1">f12</button>
+            <button class="key1">prt sc</button>
+            <button class="key1">delete</button>
+            <button class="key1">home</button>
+            <button class="key1">end</button>
+            <button class="key1">pg up</button>
+            <button class="key1" style="width: 42px;">pg dn</button>
+            <br>
+            <br>
+        </div>
+            <div class="num">
+                <button class="num1" style="width: 30px;">~</button>
+                <button class="num1">1</button>
+                <button class="num1">2</button>
+                <button class="num1">3</button>
+                <button class="num1">4</button>
+                <button class="num1">5</button>
+                <button class="num1">6</button>
+                <button class="num1">7</button>
+                <button class="num1">8</button>
+                <button class="num1">9</button>
+                <button class="num1">0</button>
+                <button class="num1">-</button>
+                <button class="num1">=</button>
+                <button class="num1" style="width: 75px;">backspace</button>
+                <button class="num1">num lock</button>
+                <button class="num1">/</button>
+                <button class="num1">*</button>
+                <button class="num1">-</button>
+            </div>
+            <div class="all">
+                <button class="all1" style="width: 50pxpx;">tab</button>
+                <button class="all1">Q</button>
+                <button class="all1">W</button>
+                <button class="all1">E</button>
+                <button class="all1">R</button>
+                <button class="all1">T</button>
+                <button class="all1">Y</button>
+                <button class="all1">U</button>
+                <button class="all1">I</button>
+                <button class="all1">O</button>
+                <button class="all1">P</button>
+                <button class="all1">[</button>
+                <button class="all1">]</button>
+                <button class="all1">\</button>
+                <button class="all1">7</button>
+                <button class="all1">8</button>
+                <button class="all1">9</button>
+                <button style="height: 100px; width: 46px;">+</button>
+            </div>
+            <div class="caps">
+                <button class="caps1">caps lock</button>
+                <button class="caps1">A</button>
+                <button class="caps1">S</button>
+                <button class="caps1">D</button>
+                <button class="caps1">F</button>
+                <button class="caps1">G</button>
+                <button class="caps1">H</button>
+                <button class="caps1">J</button>
+                <button class="caps1">K</button>
+                <button class="caps1">L</button>
+                <button class="caps1">;</button>
+                <button class="caps1">'</button>
+                <button class="caps1" style="width: 75px;">enter</button>
+                <button class="caps1">4</button>
+                <button class="caps1">5</button>
+                <button class="caps1">6</button>
+            </div>
+            <div class="shif">
+                <button class="shift1" style="width: 72px;">shift</button>
+                <button class="shift1">Z</button>
+                <button class="shift1">X</button>
+                <button class="shift1">C</button>
+                <button class="shift1">V</button>
+                <button class="shift1">B</button>
+                <button class="shift1">N</button>
+                <button class="shift1">M</button>
+                <button class="shift1"> < </button>
+                <button class="shift1"> > </button>
+                <button class="shift1">/</button>
+                <button class="shift1" style="width: 70px;">shift</button>
+                <button class="shift1">1</button>
+                <button class="shift1">2</button>
+                <button class="shift1">3</button>
+                <button class="shift1" style="width: 48px; height: 100px;" >enter</button>
+            </div>
+            <div class="con">
+                <button class="con1" style="width: 50px;">ctrl</button>
+                <button class="con1">fn</button>
+                <button class="con1"><ion-icon name="logo-windows"></ion-icon></button>
+                <button class="con1" >alt</button>
+                <button class="con1" style="width: 250px;">space bar</button>
+                <button class="con1">alt</button>
+                <button class="con1">ctrl</button>
+                <button class="con1"><ion-icon name="chevron-back-outline"></ion-icon></button>
+                <button class="con1" style="width: 50px; height: 20px;"><ion-icon name="chevron-up-outline"></ion-icon></button>
+                <button class="con2" style="width: 50px; height: 15px;"><ion-icon name="chevron-down-outline"></ion-icon></button>
+                <button class="con1"><ion-icon name="chevron-forward-outline"></ion-icon></button>
+                <button class="con1" style="width: 80px;">0</button>
+                <button class="con1" style="width: 43px;">.</button>
+            </div>
+    </div>
+</body>
+</html>
